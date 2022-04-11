@@ -4,7 +4,7 @@ import * as TWEEN from '@tweenjs/tween.js';
 export default class SnakeCode {
 	constructor() 
 	{
-		this.gameScale = 2;
+		this.gameScale = 3;
 		this.boardSize = 8;
 		this.snakeSpeed = 0.5;
 		this.snakeStarterLength = 10 ;

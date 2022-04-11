@@ -59,23 +59,13 @@ export default class Jihadinit
         this.controls = new OrbitControls(this.camera, this.renderer.domElement);
         this.controls.enableDamping = true
         this.controls.dampingFactor = 0.05;
-        this.controls.minPolarAngle = 0; // radians
-        this.controls.maxPolarAngle = (Math.PI)/2;
-        this.controls.minAzimuthAngle = 0 
+        this.controls.minPolarAngle = -(Math.PI)/1.5; // radians
+        this.controls.maxPolarAngle = (Math.PI)/1.8;
+        this.controls.maxAzimuthAngle = (Math.PI)/2.5;
+        this.controls.minAzimuthAngle = -(Math.PI)/2.5; 
         // this.stats = Stats();
         // document.body.appendChild(this.stats.dom);
 
-
-
-        let ambientLight = new THREE.AmbientLight(0xffffff, 5.5);
-        ambientLight.castShadow = true;
-        this.scene.add(ambientLight);
-    
-
-        let spotLight = new THREE.SpotLight(0xffffff, 0.5);
-        spotLight.castShadow = true;
-        spotLight.position.set(0, 48, 48);
-        this.scene.add(spotLight);
 
         const dracoLoader = new DRACOLoader()
         dracoLoader.setDecoderPath('draco/')
