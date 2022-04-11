@@ -124,7 +124,7 @@ export default class Jihadinit
         this.rtScene.background = new THREE.Color(0xfafafa);
 
 
-        const planeGeometry = new THREE.PlaneGeometry(35, 26, 32, 32);
+        const planeGeometry = new THREE.PlaneGeometry(35, 27, 32, 32);
         const planeMaterial = new THREE.ShaderMaterial({
         side: THREE.DoubleSide,
         uniforms: {
@@ -138,7 +138,7 @@ export default class Jihadinit
         const planeMesh = new THREE.Mesh(planeGeometry, planeMaterial);
         planeMesh.position.y = 0.5;
         planeMesh.position.x = -0.6;
-        planeMesh.position.z = -2.4;
+        planeMesh.position.z = -2.9;
         planeMesh.rotation.x = -Math.PI / 20;
         planeMesh.scale.set(1.2, 1.2, 1.2);
         this.scene.add(planeMesh);

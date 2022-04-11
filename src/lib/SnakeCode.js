@@ -11,7 +11,7 @@ export default class SnakeCode {
 
 		this.lastTimeStamp = 0;
 		this.loopTimeStep = 500;
-		this.tweenTimeStep = 150;
+		this.tweenTimeStep = 250;
 		this.lastPressedKey = 'Esc';
 
 		this.boardGroup = new THREE.Group();
