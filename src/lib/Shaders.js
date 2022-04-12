@@ -22,7 +22,7 @@ uniform sampler2D uTexture;
 varying vec2 vUv;
 void main() {
 	vec3 t = texture2D(uTexture, vUv).rgb;
-	gl_FragColor = vec4( t, 1.0 );
+	gl_FragColor = vec4( t, 0.5 );
 }
 	`;
 };
@@ -56,7 +56,8 @@ void main() {
 	// Eskil's vignette
 	vec4 texel = texture2D( tDiffuse, vUv );
 	vec2 uv = ( vUv - vec2( 0.5 ) ) * vec2( offset );
-	gl_FragColor = vec4( mix( texel.rgb, vec3( 1.0 - darkness ), dot( uv, uv ) ), texel.a );
+	// gl_FragColor = vec4( mix( texel.rgb, vec3( 1.0 - darkness*0.6 ), dot( uv, uv ) ), texel.a );
+	gl_FragColor = vec4( mix( texel.rgb, vec3( 1.0 - darkness*0.5 ), dot( uv, uv ) ), texel.a );
 }
   `;
 };
