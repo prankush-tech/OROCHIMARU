@@ -48,6 +48,7 @@ export default class Jihadinit {
 		this.controls = new OrbitControls(this.camera, this.renderer.domElement);
 		this.controls.enableDamping = true;
 		this.controls.dampingFactor = 0.05;
+		this.controls.zoomSpeed = 0.25
 		this.controls.minPolarAngle = -Math.PI / 1.5; // radians
 		this.controls.maxPolarAngle = Math.PI / 1.8;
 		this.controls.maxAzimuthAngle = Math.PI / 2.5;
@@ -73,7 +74,8 @@ export default class Jihadinit {
 					loadingtext.style.opacity = 0;
 				}, 1500);
 
-				window.setTimeout(() => {
+				window.setTimeout(() =>
+				 {
 					sceneready = true;
 				}, 2000);
 			},
