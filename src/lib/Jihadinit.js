@@ -1,5 +1,5 @@
 import * as THREE from 'three';
-import './index.css';
+import './index2.css';
 // import Stats from 'three/examples/jsm/libs/stats.module';
 import { gsap } from 'gsap';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader';
