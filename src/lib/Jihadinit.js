@@ -1,4 +1,4 @@
-import * as THREE from 'three';
+import * as three from 'three';
 import './index2.css';
 // import Stats from 'three/examples/jsm/libs/stats.module';
 import { gsap } from 'gsap';
@@ -15,6 +15,7 @@ import {
 	customVignetteFragmentShader
 } from './Shaders';
 
+
 import { DRACOLoader } from 'three/examples/jsm/loaders/DRACOLoader.js';
 
 export default class Jihadinit {
@@ -29,14 +30,14 @@ export default class Jihadinit {
 	}
 
 	initScene() {
-		this.clock = new THREE.Clock();
-		this.scene = new THREE.Scene();
-		this.camera = new THREE.PerspectiveCamera(this.fov, window.innerWidth / window.innerHeight, 1, 1000);
+		this.clock = new three.Clock();
+		this.scene = new three.Scene();
+		this.camera = new three.PerspectiveCamera(this.fov, window.innerWidth / window.innerHeight, 1, 1000);
 		this.camera.position.z = 110;
 		this.camera.position.y = 20;
 
 		const canvas = document.getElementById(this.canvasID);
-		this.renderer = new THREE.WebGLRenderer({
+		this.renderer = new three.WebGLRenderer({
 			canvas,
 			antialias: true
 		});
@@ -57,7 +58,7 @@ export default class Jihadinit {
 		let sceneready = false;
 		const loadingBarElement = document.querySelector('.loading-bar');
 		const loadingtext = document.querySelector('.loadingtext');
-		const loadingManager = new THREE.LoadingManager(
+		const loadingManager = new three.LoadingManager(
 			() => {
 				window.setTimeout(() => {
 					// Animate overlay
@@ -100,8 +101,8 @@ export default class Jihadinit {
 			this.scene.add(gltf.scene);
 		});
 
-		const overlayGeometry = new THREE.PlaneBufferGeometry(2, 2, 1, 1);
-		const overlaymaterial = new THREE.ShaderMaterial({
+		const overlayGeometry = new three.PlaneBufferGeometry(2, 2, 1, 1);
+		const overlaymaterial = new three.ShaderMaterial({
 			// wireframe: true,
 			transparent: true,
 			uniforms: {
@@ -120,7 +121,7 @@ export default class Jihadinit {
           }`
 		});
 
-		const overlay = new THREE.Mesh(overlayGeometry, overlaymaterial);
+		const overlay = new three.Mesh(overlayGeometry, overlaymaterial);
 		// overlay.rotation.y=3
 		this.scene.add(overlay);
 
@@ -133,21 +134,21 @@ export default class Jihadinit {
 		const rtHeight = 1024;
 		const rtAspect = rtWidth / rtHeight;
 
-		this.rtScene = new THREE.Scene();
-		this.renderTarget = new THREE.WebGLRenderTarget(rtWidth, rtHeight);
-		this.rtCamera = new THREE.PerspectiveCamera(rtFov, rtAspect, rtNear, rtFar);
+		this.rtScene = new three.Scene();
+		this.renderTarget = new three.WebGLRenderTarget(rtWidth, rtHeight);
+		this.rtCamera = new three.PerspectiveCamera(rtFov, rtAspect, rtNear, rtFar);
 		this.rtCamera.position.z = 38;
 
 		const color = 0xffffff;
 		const intensity = 1;
-		const light = new THREE.DirectionalLight(color, intensity);
+		const light = new three.DirectionalLight(color, intensity);
 		light.position.set(0, 0, 200);
 		this.rtScene.add(light);
-		this.rtScene.background = new THREE.Color(0xfafafa);
+		this.rtScene.background = new three.Color(0xfafafa);
 
-		const planeGeometry = new THREE.PlaneGeometry(35, 27, 32, 32);
-		const planeMaterial = new THREE.ShaderMaterial({
-			side: THREE.DoubleSide,
+		const planeGeometry = new three.PlaneGeometry(35, 27, 32, 32);
+		const planeMaterial = new three.ShaderMaterial({
+			side: three.DoubleSide,
 			uniforms: {
 				time: { type: 'f', value: 1.0 },
 				uTexture: { value: this.renderTarget.texture }
@@ -156,7 +157,7 @@ export default class Jihadinit {
 			fragmentShader: planeFragmentShader()
 		});
 
-		const planeMesh = new THREE.Mesh(planeGeometry, planeMaterial);
+		const planeMesh = new three.Mesh(planeGeometry, planeMaterial);
 		planeMesh.position.y = 0.5;
 		planeMesh.position.x = -0.6;
 		planeMesh.position.z = -2.9;
@@ -178,7 +179,7 @@ export default class Jihadinit {
 		this.composer = new EffectComposer(this.renderer, this.renderTarget);
 		const renderPass = new RenderPass(this.rtScene, this.rtCamera);
 		const filmPass = new FilmPass(0.35, 0.025, 648, false);
-		const customVignettePass = new ShaderPass(new THREE.ShaderMaterial(this.customVignetteShader));
+		const customVignettePass = new ShaderPass(new three.ShaderMaterial(this.customVignetteShader));
 		this.composer.addPass(renderPass);
 		this.composer.addPass(customVignettePass);
 		this.composer.addPass(filmPass);
