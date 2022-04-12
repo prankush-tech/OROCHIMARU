@@ -1,13 +1,13 @@
-import * as THREE from 'three';
+import * as THREE from 'THREE';
 import './index2.css';
-// import Stats from 'three/examples/jsm/libs/stats.module';
+// import Stats from 'THREE/examples/jsm/libs/stats.module';
 import { gsap } from 'gsap';
-import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader';
-import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
-import { EffectComposer } from 'three/examples/jsm/postprocessing/EffectComposer';
-import { RenderPass } from 'three/examples/jsm/postprocessing/RenderPass';
-import { ShaderPass } from 'three/examples/jsm/postprocessing/ShaderPass';
-import { FilmPass } from 'three/examples/jsm/postprocessing/FilmPass';
+import { GLTFLoader } from 'THREE/examples/jsm/loaders/GLTFLoader';
+import { OrbitControls } from 'THREE/examples/jsm/controls/OrbitControls';
+import { EffectComposer } from 'THREE/examples/jsm/postprocessing/EffectComposer';
+import { RenderPass } from 'THREE/examples/jsm/postprocessing/RenderPass';
+import { ShaderPass } from 'THREE/examples/jsm/postprocessing/ShaderPass';
+import { FilmPass } from 'THREE/examples/jsm/postprocessing/FilmPass';
 import {
 	planeVertexShader,
 	planeFragmentShader,
@@ -16,7 +16,7 @@ import {
 } from './Shaders';
 
 
-import { DRACOLoader } from 'three/examples/jsm/loaders/DRACOLoader.js';
+import { DRACOLoader } from 'THREE/examples/jsm/loaders/DRACOLoader.js';
 
 export default class Jihadinit {
 	constructor(canvasID, camera, scene, stats, controls, renderer, fov = 36) {
