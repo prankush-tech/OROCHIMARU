@@ -1,4 +1,4 @@
-import * as three from 'three';
+import * as THREE from 'three';
 import * as TWEEN from '@tweenjs/tween.js';
 
 export default class SnakeCode {
@@ -14,11 +14,11 @@ export default class SnakeCode {
 		this.tweenTimeStep = 250;
 		this.lastPressedKey = 'Esc';
 
-		this.boardGroup = new three.Group();
-		this.snackGroup = new three.Group();
-		this.snakeGroup = new three.Group();
+		this.boardGroup = new THREE.Group();
+		this.snackGroup = new THREE.Group();
+		this.snakeGroup = new THREE.Group();
 
-		this.snakegamegroup = new three.Group();
+		this.snakegamegroup = new THREE.Group();
 
 		this.snakegamegroup.add(this.snakeGroup);
 		this.snakegamegroup.add(this.snackGroup);
@@ -69,9 +69,9 @@ export default class SnakeCode {
 
 		for (let i = 0; i < this.snakeStarterLength; i++)
 		 {
-			const snakePartGeometry = new three.BoxGeometry(1, 1, 1);
-			const snakePartMaterial = new three.MeshNormalMaterial();
-			const snakePart = new three.Mesh(snakePartGeometry, snakePartMaterial);
+			const snakePartGeometry = new THREE.BoxGeometry(1, 1, 1);
+			const snakePartMaterial = new THREE.MeshNormalMaterial();
+			const snakePart = new THREE.Mesh(snakePartGeometry, snakePartMaterial);
 
 			snakePart.position.x = this.snakeStarterLength / 2 - 0.5 - i;
 			snakePart.position.y = -0.5;
@@ -95,9 +95,9 @@ export default class SnakeCode {
 			snackXY = this.getRandomXY();
 		}
 
-		const geometry = new three.SphereGeometry(0.5);
-		const material = new three.MeshBasicMaterial( { color: 0xf00fff } );
-		const snack = new three.Mesh(geometry, material);
+		const geometry = new THREE.SphereGeometry(0.5);
+		const material = new THREE.MeshBasicMaterial( { color: 0xf00fff } );
+		const snack = new THREE.Mesh(geometry, material);
 		snack.position.x = snackXY.x;
 		snack.position.y = snackXY.y;
 
@@ -109,9 +109,9 @@ export default class SnakeCode {
 
 		for (let i = 0; i < this.boardSize; i++) {
 			for (let j = 0; j < this.boardSize; j++) {
-				const geometry = new three.BoxGeometry(1, 1, 1);
-				const material = new three.MeshNormalMaterial({ wireframe: true });
-				const boardTile = new three.Mesh(geometry, material);
+				const geometry = new THREE.BoxGeometry(1, 1, 1);
+				const material = new THREE.MeshNormalMaterial({ wireframe: true });
+				const boardTile = new THREE.Mesh(geometry, material);
 
 				// NOTE: Position the board tiles in the center of the screen.
 				boardTile.position.x = i - this.boardSize / 2 + 0.5;
@@ -123,9 +123,9 @@ export default class SnakeCode {
 
 	extendSnake(lastSnakePartCoords)
 	  {
-		const snakePartGeometry = new three.BoxGeometry(1, 1, 1);
-		const snakePartMaterial = new three.MeshNormalMaterial();
-		const snakePart = new three.Mesh(snakePartGeometry, snakePartMaterial);
+		const snakePartGeometry = new THREE.BoxGeometry(1, 1, 1);
+		const snakePartMaterial = new THREE.MeshNormalMaterial();
+		const snakePart = new THREE.Mesh(snakePartGeometry, snakePartMaterial);
 
 		snakePart.position.x = lastSnakePartCoords.x;
 		snakePart.position.y = lastSnakePartCoords.y;
